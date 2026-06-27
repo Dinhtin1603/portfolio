@@ -12,7 +12,7 @@ interface ProjectCardProps {
     du_an: DuAn //dùng lại interface DuAn vừa tạo
 }
 
-const dsDAn = [
+const dsDAn: DuAn[] = [
     {
         id: 1,
         ten: "To-do List",

@@ -4,7 +4,7 @@ import Button from './Button';
 import ThongBaoLoi from './ThongBaoLoi';
 
 //form state - object với 3 field
-interface FormData {
+interface ContactFormData {
     ten: string
     email: string
     lienLac: string
@@ -19,7 +19,7 @@ interface FormLoi {
 
 function Contact() {
     const { theme } = useTheme();
-    const [form, setForm] = useState<FormData>({ ten: "", email: "", lienLac: ""});
+    const [form, setForm] = useState<ContactFormData>({ ten: "", email: "", lienLac: ""});
     const [loi, setLoi] = useState<FormLoi>({});
     const [thanhCong, setThanhCong] = useState(false);
 
