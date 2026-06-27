@@ -1,5 +1,17 @@
 import { useTheme } from '../context/ThemeContext';
 
+interface DuAn {
+    id: number
+    ten: string 
+    moTa: string 
+    congNghe: string[] //mảng string
+    link: string
+}
+
+interface ProjectCardProps {
+    du_an: DuAn //dùng lại interface DuAn vừa tạo
+}
+
 const dsDAn = [
     {
         id: 1,
@@ -24,7 +36,7 @@ const dsDAn = [
     },
 ];
 
-function ProjectCard({ du_an }) {
+function ProjectCard({ du_an }: ProjectCardProps) {
     return (
         <div className="border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-all">
             <h3 className="text-lg font-bold text-blue-600 mb-2">{du_an.ten}</h3>

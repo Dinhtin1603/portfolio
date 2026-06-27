@@ -3,19 +3,33 @@ import { useTheme } from '../context/ThemeContext';
 import Button from './Button';
 import ThongBaoLoi from './ThongBaoLoi';
 
+//form state - object với 3 field
+interface FormData {
+    ten: string
+    email: string
+    lienLac: string
+}
+
+//loi state - giống FormData nhưng tất cả optional (có thể không có lỗi)
+interface FormLoi {
+    ten?: string
+    email?: string
+    lienLac?: string
+}
+
 function Contact() {
     const { theme } = useTheme();
-    const [form, setForm] = useState({ ten: "", email: "", lienLac: ""});
-    const [loi, setLoi] = useState({});
+    const [form, setForm] = useState<FormData>({ ten: "", email: "", lienLac: ""});
+    const [loi, setLoi] = useState<FormLoi>({});
     const [thanhCong, setThanhCong] = useState(false);
 
-    function capNhat(e) {
+    function capNhat(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
 
-    function xuLySubmit(e) {
+    function xuLySubmit(e: React.SubmitEvent) {
         e.preventDefault();
-        const loiMoi = {};
+        const loiMoi: FormLoi = {};
         if (!form.ten) loiMoi.ten = "Vui lòng nhập tên";
         if (!form.email.includes("@")) loiMoi.email = "Email không hợp lệ";
         if (!form.lienLac) loiMoi.lienLac = "Vui lòng nhập tin nhắn";

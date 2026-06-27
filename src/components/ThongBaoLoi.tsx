@@ -1,6 +1,8 @@
+interface ThongBaoLoiProps {
+  loi?: string
+}
 
-
-function ThongBaoLoi({ loi }) {
+function ThongBaoLoi({ loi }: ThongBaoLoiProps) {
   if (!loi) return null;
   return <p className="text-red-500 text-sm mt-1">{loi}</p>
 }
