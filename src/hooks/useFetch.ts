@@ -6,6 +6,9 @@ function useFetch<T>(url: string) {
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
+        setData(null) //reset data cũ
+        setLoading(true) //bật loading lại 
+        setError(null) //xoá lỗi cũ 
         // fetch url
         async function fetchData() {
             try { //nếu ok -> setData

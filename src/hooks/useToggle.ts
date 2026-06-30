@@ -4,7 +4,7 @@ function useToggle(defaultValue: boolean = false) {
     const [value, setValue] = useState<boolean>(defaultValue)
 
     function toggle() {
-        setValue(!value) 
+        setValue(prev => !prev) // prev = giá trị mới nhất
     }
 
     return [value, toggle]
